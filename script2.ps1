@@ -26,8 +26,9 @@ Function GetListeMembreGrp()
                         Write-Host " le groupe est " $MembreGroup -ForegroundColor Red
                         Write-Host " les membres sont" -ForegroundColor Red
                         Get-ADgroupmember -Identity $MembreGroup | Select-Object SamAccountName
-                        #Write-Host " Fin de la liste des membres du groupe " $MembreGroup -ForegroundColor Green
-                        #Write-Host " "
+                        Write-Host " Fin de la liste des membres du groupe " 
+                        #$MembreGroup -ForegroundColor Green
+                        Write-Host " "
                         }
                 }
             else 

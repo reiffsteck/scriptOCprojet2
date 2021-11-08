@@ -54,7 +54,7 @@ Function GetListeMembreGrp()
                         5 { $MembreGroup="DirectionGenerale"}
                         6 { $MembreGroup="DirectionMarketing"}
                         7 { $MembreGroup="DirectionTechnique"}
-                        8 { $MembreGroup="RessourecesHumaines"}
+                        8 { $MembreGroup="RessourcesHumaines"}
                     }
                 Write-Host " "
                 Write-Host "Dans le groupe " $MembreGroup "les membres sont:" -ForegroundColor Red

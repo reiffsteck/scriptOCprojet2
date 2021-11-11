@@ -18,15 +18,16 @@ Function GetListeMembreGrp()
                 write-host "le chemin d'importation est connu  C:\Scripts\AD_USERS\membregroupe.csv"
                 $CSVFile = "C:\Scripts\AD_USERS\membregroupe.csv"
                 $CSVData = Import-CSV -Path $CSVFile -Delimiter ";" -Encoding UTF8 
-                Write-Host "Fichier Importe"
+               # Write-Host "Fichier Importe"
 
                 Foreach ($Membre in $CSVData)
                         {
                         $MembreGroup = $Membre.Departement
-                        Write-Host " le groupe est " $MembreGroup -ForegroundColor Red
-                        Write-Host " les membres sont" -ForegroundColor Red
+                        Write-Host  " le groupe est " $MembreGroup
+                        Write-Output " le groupe est " $MembreGroup 
+                        Write-Output " les membres sont" 
                         Get-ADgroupmember -Identity $MembreGroup | Select-Object SamAccountName
-                        Write-Host " Fin de la liste des membres du groupe " 
+                        Write-Output " Fin de la liste des membres du groupe " 
                         Write-Host " "
                         }
                 }

@@ -2,6 +2,9 @@ param
 (
         [string] $n=' '
 )
+
+$ErrorActionPreference = "SilentlyContinue"
+$Error.Clear()  #purge des erreurs
 # question interactif ou non
 #Lister les membres d'un groupe
 Function GetListeMembreGrp() 
@@ -29,6 +32,7 @@ Function GetListeMembreGrp()
                         Get-ADgroupmember -Identity $MembreGroup | Select-Object SamAccountName
                         Write-Output " Fin de la liste des membres du groupe " 
                         Write-Host " "
+                        SortieErreur
                         }
                 }
             else 
@@ -57,9 +61,29 @@ Function GetListeMembreGrp()
                         8 { $MembreGroup="RessourcesHumaines"}
                     }
                 Write-Host " "
-                Write-Host "Dans le groupe " $MembreGroup "les membres sont:" -ForegroundColor Red
+                Write-Host "Dans le groupe " $MembreGroup "les membres sont:" 
                 Get-ADgroupmember $MembreGroup | Select-Object SamAccountName
+                SortieErreur
                 }
     }
 
+    Function SortieErreur( )
+{
+    param ()
+
+    if($Error.Count -ieq 0)
+    {
+   
+     Write-Output "Code de sortie" $error[0] #affichage erreur
+    $LastExitCode
+    }
+
+    Else
+    {
+        Write-Host "Erreur:"
+        Write-Host $error[0] #affichage erreur
+        $LastExitCode
+        exit
+    }
+}
     GetListeMembreGrp -n $n

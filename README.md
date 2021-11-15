@@ -40,6 +40,9 @@ Dans le cadre du projet, il est demandé de donner les membres d'un seul groupe 
 Le fichier membregroupe.csv se compose du Departement comme titre , c'est à dire l'OU , et le nom de groupe à chercher. Le fichier CSV du script1github pourrait etre utliisé.
 Si l'argument n'est pas vide, le script demande le nom du groupe que l'on désire, à l'aide d'une commande switch. Ensuite on obtient le résultat demandé.
 
+Ajout d'une condition, qui teste s'il y a une erreur dans le déroulement du script.
+Elle renvoi un code ok , si tout c'est dérouler correctement, ou un code 1 en cas d'erreur, avec l'explication de l'erreur $error[0] et éventuellement le code de la commande incorrecte, renvoi les Exit Code de la commande. 
+
 
 ***
 # Fabriqué 

@@ -83,7 +83,7 @@ Function GetListeMembreGrp()
         Write-Host "Erreur:"
         Write-Host $error[0] #affichage erreur
         $LastExitCode
-        exit
+        exit 1
     }
 }
     GetListeMembreGrp -n $n
